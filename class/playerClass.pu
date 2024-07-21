@@ -1,0 +1,68 @@
+@startuml
+
+abstract PlayerBase {
+    name
+    score
+    saveGame()
+    loadGame()
+}
+
+class Player extends PlayerBase {
+    name
+    score
+    saveGame()
+    loadGame()
+    startGame()
+    pauseGame()
+    exitGame()
+    restartGame()
+    openSettings()
+    movePiece()
+    surrenderGame()
+}
+
+abstract PieceBase {
+    color
+    position
+    move()
+}
+
+class KingPiece extends PieceBase {
+    color
+    position
+    move()
+}
+
+class QueenPiece extends PieceBase {
+    color
+    position
+    move()
+}
+
+class BishopPiece extends PieceBase {
+    color
+    position
+    move()
+}
+
+class KnightPiece extends PieceBase {
+    color
+    position
+    move()
+}
+
+class RookPiece extends PieceBase {
+    color
+    position
+    move()
+}
+
+class PawnPiece extends PieceBase {
+    color
+    position
+    move()
+}
+
+
+
+@enduml

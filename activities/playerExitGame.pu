@@ -1,0 +1,26 @@
+@startuml
+
+start
+:Player enter exit button;
+:Player confirm exit;
+if (checkMode) then (bot)
+    if (confirm) then (yes)
+        :Exit game;
+        if (isSave) then (yes)
+            :Save game;
+            stop
+        else (no)
+            :End game;
+            stop
+        endif
+    else (no)
+        :Player continues game; 
+        stop
+    endif
+    
+else (player)
+    :Player surrender;
+    stop
+endif
+
+@enduml

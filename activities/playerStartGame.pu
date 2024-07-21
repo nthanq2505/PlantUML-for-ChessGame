@@ -1,0 +1,15 @@
+@startuml
+
+start
+
+:Player enter start button;
+:Player select game mode;
+if (select mode) then (bot)
+    :Player select difficulty;
+    :Player start game with bot;
+    stop
+else (player)
+    :Start game with another player;
+    stop
+
+@enduml

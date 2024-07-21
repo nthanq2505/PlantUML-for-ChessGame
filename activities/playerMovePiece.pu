@@ -1,0 +1,27 @@
+@startuml
+
+start
+:Player Selected Piece;
+if (checkPossibleMoves) then (yes)
+    :Possible Moves;
+    :Player Selected Move;
+    if (checkMove) then (yes)
+        :Move Piece;
+        if (checkWin) then (yes)
+            :Win;
+            stop
+        else (no)
+            :End Turn;
+        endif
+    else (no)
+        :Invalid Move;
+        stop
+    endif
+else (no)
+    :Player;
+    :End Turn;
+endif
+stop
+
+
+@enduml

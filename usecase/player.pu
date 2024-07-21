@@ -1,0 +1,25 @@
+@startuml
+
+left to right direction
+
+actor Player as player
+
+package PlayerUseCases {
+    usecase "Save game" as saveGame
+    usecase "Load game" as loadGame
+    usecase "Start game" as startGame
+    usecase "Move Piece" as movePiece
+    usecase "Exit game" as exitGame
+    usecase "Surrender game" as surrenderGame
+}
+
+:player: --> saveGame
+:player: --> loadGame
+:player: --> startGame
+:player: --> movePiece
+:player: --> exitGame
+:player: --> surrenderGame
+
+' :System: -> ()
+
+@enduml

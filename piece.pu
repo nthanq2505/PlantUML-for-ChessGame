@@ -1,0 +1,17 @@
+@startuml
+
+actor Piece as piece
+
+package PieceUseCases {
+    usecase "Piece's move" as pieceMove
+    usecase "Check Possible Moves" as checkPossibleMoves
+    usecase "Check Move" as checkMove
+    usecase "Evolution" as evolution
+}
+
+:piece: --> pieceMove
+:piece: --> checkPossibleMoves
+:piece: --> checkMove
+:piece: --> evolution
+
+@enduml

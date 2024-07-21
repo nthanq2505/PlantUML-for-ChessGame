@@ -1,0 +1,14 @@
+@startuml
+
+start
+:Player enter surrender button;
+:Player confirm surrender;
+if (confirm) then (yes)
+    :Player surrender;
+    :System set loser as player;
+    stop
+else (no)
+    :Player continues game; 
+    stop
+
+@enduml
