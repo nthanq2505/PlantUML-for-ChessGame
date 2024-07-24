@@ -1,0 +1,14 @@
+@startuml
+
+start
+:Guest enter username and password;
+:Guest click login button;
+:System check username and password;
+if (Username and password are correct) then (yes)
+    :Guest login successful;
+else (no)
+    :System show error message;
+endif
+stop
+
+@enduml

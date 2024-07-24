@@ -1,27 +1,19 @@
 @startuml
 
 start
-:Player Selected Piece;
-if (checkPossibleMoves) then (yes)
-    :Possible Moves;
+repeat
+    :Player Selected Piece;
     :Player Selected Move;
-    if (checkMove) then (yes)
-        :Move Piece;
-        if (checkWin) then (yes)
-            :Win;
-            stop
-        else (no)
-            :End Turn;
-        endif
-    else (no)
-        :Invalid Move;
-        stop
-    endif
+    repeat while (checkPossibleMoves and checkMove) is (no) not (yes)
+
+:Move Piece;
+if (checkWin) then (yes)
+    :System shows win message;
+    :End Game;
 else (no)
-    :Player;
-    :End Turn;
+    :System save history;
+    :Next Turn;
 endif
 stop
-
 
 @enduml

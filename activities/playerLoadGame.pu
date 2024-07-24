@@ -4,12 +4,9 @@ start
 
 :Player enter load button;
 :Player select game to load;
-if (selectNewGame) then (yes)
-    :Player start new game;
-    stop
-else (no)
-    :System load history of game state from database;
-    :Player continue game;
-    stop
+:System load history of game state from database;
+:Player continue game with bot;
+
+stop
 
 @enduml

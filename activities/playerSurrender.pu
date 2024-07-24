@@ -6,9 +6,9 @@ start
 if (confirm) then (yes)
     :Player surrender;
     :System set loser as player;
-    stop
 else (no)
     :Player continues game; 
-    stop
+endif
+stop
 
 @enduml

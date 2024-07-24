@@ -1,25 +1,46 @@
 @startuml
 
-left to right direction
 
+left to right direction
 actor Player as player
 
-package PlayerUseCases {
-    usecase "Save game" as saveGame
+package "System Boundary" {
     usecase "Load game" as loadGame
+    usecase "Save game" as saveGame
     usecase "Start game" as startGame
     usecase "Move Piece" as movePiece
     usecase "Exit game" as exitGame
     usecase "Surrender game" as surrenderGame
+    usecase "Chat" as chat
 }
 
+package "Guest Boundary" {
+    usecase "Login" as guestLogin
+    usecase "Register" as guestRegister
+}
+
+:player: --> movePiece
+:player: --> startGame
+:player: --> surrenderGame
 :player: --> saveGame
 :player: --> loadGame
-:player: --> startGame
-:player: --> movePiece
 :player: --> exitGame
-:player: --> surrenderGame
+:player: --> chat
 
-' :System: -> ()
+(movePiece) .> (startGame) : <<extends>>
+(surrenderGame) .> (exitGame) : <<includes>>
+(saveGame) .> (startGame) : <<extends>>
+
+actor Guest as guest
+
+:guest: --> guestLogin
+:guest: --> guestRegister
+:guest: -up-> startGame
+:guest: -up-> exitGame
+:guest: -up-> surrenderGame
+:guest: -up-> movePiece
+
+
+
 
 @enduml

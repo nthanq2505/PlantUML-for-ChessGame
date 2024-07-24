@@ -7,9 +7,10 @@ start
 if (select mode) then (bot)
     :Player select difficulty;
     :Player start game with bot;
-    stop
 else (player)
+    :Player waiting for another player;
     :Start game with another player;
-    stop
+endif
+stop
 
 @enduml

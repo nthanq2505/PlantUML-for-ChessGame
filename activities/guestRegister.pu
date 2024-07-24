@@ -1,0 +1,13 @@
+@startuml
+
+start
+repeat
+    :Guest enter username and password;
+    :Guest click register button;
+    :System check username already exist;
+    repeat while (Username already exist) is (yes) not (no)
+:System create new account;
+:System change page to login;
+stop
+
+@enduml

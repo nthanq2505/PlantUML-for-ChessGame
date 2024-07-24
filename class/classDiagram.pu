@@ -1,0 +1,107 @@
+
+@startuml
+
+abstract PlayerBase {
+    -name
+    -score
+    +movePiece()
+}
+
+class Player extends PlayerBase {
+    -name
+    -score
+    +movePiece()
+    +startGame()
+    +saveGame()
+    +loadGame()
+    +exitGame()
+    +surrenderGame()
+}
+
+class Bot extends PlayerBase {
+    -name
+    -score
+    +movePiece()
+}
+
+class Game {
+    -whitePlayer: Player or Bot
+    -blackPlayer: Player or Bot
+    -board: Board
+    -currentPlayer
+    -history
+    +makeMove(currentPlayer, start, end)
+    +checkEndGame()
+    +checkWin()
+    +checkDraw()
+    +checkLose()
+}
+Player "1..2"--* Game
+Bot "0..1"--* Game
+
+class Board {
+    -cells: Cell[]
+    +initiateBoard(): Board
+    +getCell(row, column): Cell
+    +setCell(row, column, piece): void
+}
+Board "1"--* Game
+
+class Cell {
+    -row
+    -column
+    -piece: Piece
+    +getCell(): Cell
+    +getPiece(): Piece
+    +setCell(piece): void
+    +isEmpty(): boolean
+}
+
+Cell "64"--* Board
+
+abstract PieceBase {
+    -color
+    +findValidMove(): Array
+}
+
+class KingPiece extends PieceBase {
+    -color
+    +findValidMove(): Array
+}
+
+class QueenPiece extends PieceBase {
+    -color
+    +findValidMove(): Array
+}
+
+class BishopPiece extends PieceBase {
+    -color
+    +findValidMove(): Array
+}
+
+class KnightPiece extends PieceBase {
+    -color
+    +findValidMove(): Array
+}
+
+class RookPiece extends PieceBase {
+    -color
+    +findValidMove(): Array
+}
+
+class PawnPiece extends PieceBase {
+    -color
+    +findValidMove(): Array
+    +phongCap(): Piece
+
+}
+
+KingPiece "2"-down- Cell
+QueenPiece "0..*"-down- Cell  
+BishopPiece "0..*"-down- Cell
+KnightPiece "0..*"-down- Cell 
+RookPiece "0..*"-down- Cell  
+PawnPiece "0..16"-down- Cell 
+
+
+@enduml
